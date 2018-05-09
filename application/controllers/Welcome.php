@@ -20,6 +20,19 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->database();
+
+		$query = $this->db->query("SELECT AlbumID,Album,AlbumPic,CelebrityID,Name FROM tblMusic as m
+									JOIN tblcelebrity as c on c.CelebrityID=m.Singer
+ 									WHERE MusicType= ? ORDER BY PublishDate DESC limit 12", array('華語專輯'));
+
+		foreach ($query->result() as $row)
+		{
+		    var_dump($row);
+		}
+
+		echo 'Total Results: ' . $query->num_rows();
+		exit;
+		// $this->load->view('welcome_message');
 	}
 }
