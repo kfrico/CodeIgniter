@@ -256,31 +256,6 @@ require_once("templates/html_header.php");
 
     </div><!--music-life01 END-->
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
      <div class="musicColumn" id="music-life02"><!--music-life02 -->
 
         <div id="tabs2">
@@ -294,15 +269,6 @@ require_once("templates/html_header.php");
                 <li><a href="#music-life02-jk">日韓音樂新聞</a></li>
 
             </ul>
-        <?php        
-                  $News=$DBConn->prepare("SELECT id,homeImage,title,context,publishedTime as time FROM article
-                                         WHERE type=:type and status='open' ORDER BY publishedTime DESC");
-                  $News->bindValue(':type',5,PDO::PARAM_STR);
-                  $News->execute();
-      
-                  $NewsResults=$News->fetchAll(PDO::FETCH_ASSOC);
-    
-                ?>
        
             <div id="music-life02-chinese">  <!-- 音樂新聞-華語 --> 
             
@@ -310,12 +276,12 @@ require_once("templates/html_header.php");
               
               <tr>
                 
-                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $NewsResults[0]["id"]?>&type=news"><img src="libraries/timthumb.php?src=/<?php echo noImage($NewsResults[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $NewsResults[0]["title"]; ?>" /></a></th>
+                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $c_new_comments[0]["id"]?>&type=news"><img src="libraries/timthumb.php?src=/<?php echo noImage($c_new_comments[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $c_new_comments[0]["title"]; ?>" /></a></th>
                 
-                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $NewsResults[0]["id"]?>&type=news" class="tipme-right" data="<?php echo $NewsResults[0]["title"];?>" id="<?php echo $NewsResults[0]["id"] ;?>" rel="get_article"><?php echo shorten($NewsResults[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($NewsResults[0]["time"]); ?></span></h6>
+                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $c_new_comments[0]["id"]?>&type=news" class="tipme-right" data="<?php echo $c_new_comments[0]["title"];?>" id="<?php echo $c_new_comments[0]["id"] ;?>" rel="get_article"><?php echo shorten($c_new_comments[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($c_new_comments[0]["time"]); ?></span></h6>
 
                 
-                <p class="text-2"><?php echo shorten($NewsResults[0]["context"], 120) ;?></p></td>
+                <p class="text-2"><?php echo shorten($c_new_comments[0]["context"], 120) ;?></p></td>
               
               </tr>
             
@@ -327,24 +293,13 @@ require_once("templates/html_header.php");
 
                    <img src="images/icons/news_icon.gif" width="10" height="10" style="float:left;margin:4px 4px 0 0" />
                    
-            <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $NewsResults[$i]["id"]?>&type=news" class="tipme-right" data="<?php echo $NewsResults[$i]["title"];?>" id="<?php echo $NewsResults[$i]["id"] ;?>" rel="get_article"><?php echo shorten($NewsResults[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($NewsResults[$i]["time"]); ?></span></h6>                  
+            <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $c_new_comments[$i]["id"]?>&type=news" class="tipme-right" data="<?php echo $c_new_comments[$i]["title"];?>" id="<?php echo $c_new_comments[$i]["id"] ;?>" rel="get_article"><?php echo shorten($c_new_comments[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($c_new_comments[$i]["time"]); ?></span></h6>                  
                       
                 <?php $i++; } while($i < 5)?> 
 
             </div>
 
             </div>
-
-                        
-                 <?php        
-                  $News1=$DBConn->prepare("SELECT id,homeImage,title,context,publishedTime as time FROM article 
-                                            WHERE type=:type  and status='open' ORDER BY publishedTime DESC");
-                  $News1->bindValue(':type',17,PDO::PARAM_STR);
-                  $News1->execute();
-      
-                  $NewsResults1=$News1->fetchAll(PDO::FETCH_ASSOC);
-    
-                ?>
                 
             <div id="music-life02-western">  <!-- 音樂新聞-西洋 -->  
 
@@ -352,12 +307,12 @@ require_once("templates/html_header.php");
               
               <tr>
                 
-                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $NewsResults1[0]["id"]?>&type=westnews"><img src="libraries/timthumb.php?src=/<?php echo noImage($NewsResults1[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $NewsResults1[0]["title"]; ?>" /></a></th>
+                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $u_new_comments[0]["id"]?>&type=westnews"><img src="libraries/timthumb.php?src=/<?php echo noImage($u_new_comments[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $u_new_comments[0]["title"]; ?>" /></a></th>
                 
-                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $NewsResults1[0]["id"]?>&type=westnews" class="tipme-right" data="<?php echo $NewsResults1[0]["title"];?>" id="<?php echo $NewsResults1[0]["id"] ;?>" rel="get_article"><?php echo shorten($NewsResults1[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($NewsResults1[0]["time"]); ?></span></h6>
+                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $u_new_comments[0]["id"]?>&type=westnews" class="tipme-right" data="<?php echo $u_new_comments[0]["title"];?>" id="<?php echo $u_new_comments[0]["id"] ;?>" rel="get_article"><?php echo shorten($u_new_comments[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($u_new_comments[0]["time"]); ?></span></h6>
 
                 
-                <p class="text-2"><?php echo shorten($NewsResults1[0]["context"], 120) ;?></p></td>
+                <p class="text-2"><?php echo shorten($u_new_comments[0]["context"], 120) ;?></p></td>
               
               </tr>
             
@@ -369,7 +324,7 @@ require_once("templates/html_header.php");
                  
                  <img src="images/icons/news_icon.gif" width="10" height="10" style="float:left;margin:4px 4px 0 0" />           
 
-                   <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $NewsResults1[$i]["id"]?>&type=westnews" class="tipme-right" data="<?php echo $NewsResults1[$i]["title"];?>" id="<?php echo $NewsResults1[$i]["id"] ;?>" rel="get_article"><?php echo shorten($NewsResults1[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($NewsResults1[$i]["time"]); ?></span></h6>                  
+                   <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $u_new_comments[$i]["id"]?>&type=westnews" class="tipme-right" data="<?php echo $u_new_comments[$i]["title"];?>" id="<?php echo $u_new_comments[$i]["id"] ;?>" rel="get_article"><?php echo shorten($u_new_comments[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($u_new_comments[$i]["time"]); ?></span></h6>                  
                       
                 <?php $i++; } while($i < 5)?> 
 
@@ -378,24 +333,16 @@ require_once("templates/html_header.php");
             </div>
 
             <div id="music-life02-jk">  <!-- 音樂新聞-日韓 -->               
-                <?php        
-                  $News2=$DBConn->prepare("SELECT id,homeImage,title,context,publishedTime as time FROM article 
-                                            WHERE type=:type and status='open' ORDER BY publishedTime DESC");
-                  $News2->bindValue(':type',18,PDO::PARAM_STR);
-                  $News2->execute();
-                  $NewsResults2=$News2->fetchAll(PDO::FETCH_ASSOC);
-                ?>
-
             <table width="95%" border="0" cellspacing="0" cellpadding="6">
               
               <tr>
                 
-                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $NewsResults2[0]["id"]?>&type=jknews"><img src="libraries/timthumb.php?src=/<?php echo noImage($NewsResults2[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $NewsResults2[0]["title"]; ?>" /></a></th>
+                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $j_new_comments[0]["id"]?>&type=jknews"><img src="libraries/timthumb.php?src=/<?php echo noImage($j_new_comments[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $j_new_comments[0]["title"]; ?>" /></a></th>
                 
-                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $NewsResults2[0]["id"]?>&type=jknews" class="tipme-right" data="<?php echo $NewsResults2[0]["title"];?>" id="<?php echo $NewsResults2[0]["id"] ;?>" rel="get_article"><?php echo shorten($NewsResults2[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($NewsResults2[0]["time"]); ?></span></h6>
+                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $j_new_comments[0]["id"]?>&type=jknews" class="tipme-right" data="<?php echo $j_new_comments[0]["title"];?>" id="<?php echo $j_new_comments[0]["id"] ;?>" rel="get_article"><?php echo shorten($j_new_comments[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($j_new_comments[0]["time"]); ?></span></h6>
 
                 
-                <p class="text-2"><?php echo shorten($NewsResults2[0]["context"], 120) ;?></p></td>
+                <p class="text-2"><?php echo shorten($j_new_comments[0]["context"], 120) ;?></p></td>
               
               </tr>
             
@@ -407,7 +354,7 @@ require_once("templates/html_header.php");
                  
                  <img src="images/icons/news_icon.gif" width="10" height="10" style="float:left;margin:4px 4px 0 0" />         
 
-                   <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $NewsResults2[$i]["id"]?>&type=jknews" class="tipme-right" data="<?php echo $NewsResults2[$i]["title"];?>" id="<?php echo $NewsResults2[$i]["id"] ;?>" rel="get_article"><?php echo shorten($NewsResults2[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($NewsResults2[$i]["time"]); ?></span></h6>                  
+                   <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $j_new_comments[$i]["id"]?>&type=jknews" class="tipme-right" data="<?php echo $j_new_comments[$i]["title"];?>" id="<?php echo $j_new_comments[$i]["id"] ;?>" rel="get_article"><?php echo shorten($j_new_comments[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($j_new_comments[$i]["time"]); ?></span></h6>                  
                       
                 <?php $i++; } while($i < 5)?> 
 
@@ -434,24 +381,17 @@ require_once("templates/html_header.php");
             </ul>
 
             <div id="music-life03-talk">  <!-- 聊音樂 -->               
-                <?php        
-                $talk=$DBConn->prepare("SELECT id,homeImage,title,context,publishedTime as time FROM article 
-                                        WHERE type=:type and status='open' ORDER BY publishedTime DESC");
-                $talk->bindValue(':type',3,PDO::PARAM_STR);
-                $talk->execute();
-                $talkResult=$talk->fetchAll(PDO::FETCH_ASSOC);
-                ?>
 
             <table width="95%" border="0" cellspacing="0" cellpadding="6">
               
               <tr>
                 
-                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $talkResult[0]["id"]?>&type=talk"><img src="libraries/timthumb.php?src=/<?php echo noImage($talkResult[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $talkResult[0]["title"]; ?>" /></a></th>
+                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $music_talk_comments[0]["id"]?>&type=talk"><img src="libraries/timthumb.php?src=/<?php echo noImage($music_talk_comments[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $music_talk_comments[0]["title"]; ?>" /></a></th>
                 
-                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $talkResult[0]["id"]?>&type=talk" class="tipme-right" data="<?php echo $talkResult[0]["title"];?>" id="<?php echo $talkResult[0]["id"] ;?>" rel="get_article"><?php echo shorten($talkResult[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($talkResult[0]["time"]); ?></span></h6>
+                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $music_talk_comments[0]["id"]?>&type=talk" class="tipme-right" data="<?php echo $music_talk_comments[0]["title"];?>" id="<?php echo $music_talk_comments[0]["id"] ;?>" rel="get_article"><?php echo shorten($music_talk_comments[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($music_talk_comments[0]["time"]); ?></span></h6>
 
                 
-                <p class="text-2"><?php echo shorten($talkResult[0]["context"], 120) ;?></p></td>
+                <p class="text-2"><?php echo shorten($music_talk_comments[0]["context"], 120) ;?></p></td>
               
               </tr>
             
@@ -463,7 +403,7 @@ require_once("templates/html_header.php");
                  
                  <img src="images/icons/news_icon.gif" width="10" height="10" style="float:left;margin:4px 4px 0 0" />           
 
-                   <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $talkResult[$i]["id"]?>&type=talk" class="tipme-right" data="<?php echo $talkResult[$i]["title"];?>" id="<?php echo $talkResult[$i]["id"] ;?>" rel="get_article"><?php echo shorten($talkResult[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($talkResult[$i]["time"]); ?></span></h6>                  
+                   <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $music_talk_comments[$i]["id"]?>&type=talk" class="tipme-right" data="<?php echo $music_talk_comments[$i]["title"];?>" id="<?php echo $music_talk_comments[$i]["id"] ;?>" rel="get_article"><?php echo shorten($music_talk_comments[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($music_talk_comments[$i]["time"]); ?></span></h6>                  
                       
                 <?php $i++; } while($i < 5)?> 
 
@@ -472,23 +412,16 @@ require_once("templates/html_header.php");
             </div>                     
 
             <div id="music-life03-story">  <!-- 我的音樂故事 -->               
-                <?php        
-                $story=$DBConn->prepare("SELECT id,homeImage,title,context,publishedTime as time FROM article 
-                                        WHERE type=:type and status='open' ORDER BY publishedTime DESC");
-                $story->bindValue(':type',4,PDO::PARAM_STR);
-                $story->execute();
-                $storyResult=$story->fetchAll(PDO::FETCH_ASSOC);
-                ?>
             <table width="95%" border="0" cellspacing="0" cellpadding="6">
               
               <tr>
                 
-                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $storyResult[0]["id"]?>&type=story"><img src="libraries/timthumb.php?src=/<?php echo noImage($storyResult[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $storyResult[0]["title"]; ?>" /></a></th>
+                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $music_story_comments[0]["id"]?>&type=story"><img src="libraries/timthumb.php?src=/<?php echo noImage($music_story_comments[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $music_story_comments[0]["title"]; ?>" /></a></th>
                 
-                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $storyResult[0]["id"]?>&type=story" class="tipme-right" data="<?php echo $storyResult[0]["title"];?>" id="<?php echo $storyResult[0]["id"] ;?>" rel="get_article"><?php echo shorten($storyResult[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($storyResult[0]["time"]); ?></span></h6>
+                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $music_story_comments[0]["id"]?>&type=story" class="tipme-right" data="<?php echo $music_story_comments[0]["title"];?>" id="<?php echo $music_story_comments[0]["id"] ;?>" rel="get_article"><?php echo shorten($music_story_comments[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($music_story_comments[0]["time"]); ?></span></h6>
 
                 
-                <p class="text-2"><?php echo shorten($storyResult[0]["context"], 120) ;?></p></td>
+                <p class="text-2"><?php echo shorten($music_story_comments[0]["context"], 120) ;?></p></td>
               
               </tr>
             
@@ -500,7 +433,7 @@ require_once("templates/html_header.php");
                  
                  <img src="images/icons/news_icon.gif" width="10" height="10" style="float:left;margin:4px 4px 0 0" />           
 
-                   <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $storyResult[$i]["id"]?>&type=story" class="tipme-right" data="<?php echo $storyResult[$i]["title"];?>" id="<?php echo $storyResult[$i]["id"] ;?>" rel="get_article"><?php echo shorten($storyResult[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($storyResult[$i]["time"]); ?></span></h6>                  
+                   <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $music_story_comments[$i]["id"]?>&type=story" class="tipme-right" data="<?php echo $music_story_comments[$i]["title"];?>" id="<?php echo $music_story_comments[$i]["id"] ;?>" rel="get_article"><?php echo shorten($music_story_comments[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($music_story_comments[$i]["time"]); ?></span></h6>                  
                       
                 <?php $i++; } while($i < 5)?> 
 
@@ -509,24 +442,16 @@ require_once("templates/html_header.php");
             </div>
             
             <div id="music-life03-letter">  <!-- 寫給藝人的一封信 -->               
-                <?php        
-                $ForSinger=$DBConn->prepare("SELECT id,homeImage,title,context,publishedTime as time FROM article 
-                                            WHERE type=:type and status='open' ORDER BY publishedTime DESC");
-                $ForSinger->bindValue(':type',16,PDO::PARAM_STR);
-                $ForSinger->execute();
-                $ForResult=$ForSinger->fetchAll(PDO::FETCH_ASSOC);
-                ?>
-
             <table width="95%" border="0" cellspacing="0" cellpadding="6">
               
               <tr>
                 
-                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $ForResult[0]["id"]?>&type=dearfrom"><img src="libraries/timthumb.php?src=/<?php echo noImage($ForResult[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $ForResult[0]["title"]; ?>" /></a></th>
+                <th align="center" width="24%"><a href="column_info.php?id=<?php echo $singer_mail_comments[0]["id"]?>&type=dearfrom"><img src="libraries/timthumb.php?src=/<?php echo noImage($singer_mail_comments[0]["homeImage"]); ?>&w=115&h=115&a=t" title="<?php echo $singer_mail_comments[0]["title"]; ?>" /></a></th>
                 
-                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $ForResult[0]["id"]?>&type=dearfrom" class="tipme-right" data="<?php echo $ForResult[0]["title"];?>" id="<?php echo $ForResult[0]["id"] ;?>" rel="get_article"><?php echo shorten($ForResult[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($ForResult[0]["time"]); ?></span></h6>
+                <td align="left" width="76%"><h6 class="p1-1 indent-top1 text-2"><a href="column_info.php?id=<?php echo $singer_mail_comments[0]["id"]?>&type=dearfrom" class="tipme-right" data="<?php echo $singer_mail_comments[0]["title"];?>" id="<?php echo $singer_mail_comments[0]["id"] ;?>" rel="get_article"><?php echo shorten($singer_mail_comments[0]["title"], 22) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($singer_mail_comments[0]["time"]); ?></span></h6>
 
                 
-                <p class="text-2"><?php echo shorten($ForResult[0]["context"], 120) ;?></p></td>
+                <p class="text-2"><?php echo shorten($singer_mail_comments[0]["context"], 120) ;?></p></td>
               
               </tr>
             
@@ -538,7 +463,7 @@ require_once("templates/html_header.php");
                  
                  <img src="images/icons/news_icon.gif" width="10" height="10" style="float:left;margin:4px 4px 0 0" />           
 
-                   <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $ForResult[$i]["id"]?>&type=dearfrom" class="tipme-right" data="<?php echo $ForResult[$i]["title"];?>" id="<?php echo $ForResult[$i]["id"] ;?>" rel="get_article"><?php echo shorten($ForResult[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($ForResult[$i]["time"]); ?></span></h6>                  
+                   <h6 class="p0-1 text-2-1"><a href="column_info.php?id=<?php echo $singer_mail_comments[$i]["id"]?>&type=dearfrom" class="tipme-right" data="<?php echo $singer_mail_comments[$i]["title"];?>" id="<?php echo $singer_mail_comments[$i]["id"] ;?>" rel="get_article"><?php echo shorten($singer_mail_comments[$i]["title"], 36) ;?></a>&nbsp;&nbsp;&nbsp;<span style="color:#BDBDBD;font-weight:normal;font-size:11px"><?php echo article_publish($singer_mail_comments[$i]["time"]); ?></span></h6>                  
                       
                 <?php $i++; } while($i < 5)?> 
 
@@ -573,20 +498,7 @@ require_once("templates/html_header.php");
                 <div id="billboard-chinese">  <!-- 排行榜-華語 -->     
 
                     <?php
-                    $billboard=$DBConn->prepare("SELECT b.Album, b.Singer, b.Date_from, b.Date_to, m.AlbumID, m.AlbumPic, c.CelebrityID FROM tblbillboard_album as b                                
-                                                JOIN tblcelebrity as c ON c.Name =  b.Singer 
-                                                JOIN tblMusic as m ON m.Album = b.Album AND m.Singer = c.CelebrityID
-                                                WHERE b.Category = :musictype 
-                                                AND b.Date_from like :Date_from
-                                                AND b.Week_no = (SELECT MAX(Week_no) FROM tblbillboard_album WHERE Category = :musictype and Date_from like :Date_from) 
-                                                GROUP BY b.Album
-                                                ORDER BY Rank ASC");
-                    $billboard->bindValue(':musictype','華語專輯',PDO::PARAM_STR);
-                    $billboard->bindValue(':Date_from','%'.date('Y').'%',PDO::PARAM_STR);
-            
-                    $billboard->execute();
-                    $billboardResult=$billboard->fetchAll(PDO::FETCH_ASSOC);
-                    $dateRange = '<b>'.$billboardResult[0]["Date_from"]."</b> 至 <b>".$billboardResult[0]["Date_to"]."</b>";                 
+                    $dateRange = '<b>'.$c_board_album[0]["Date_from"]."</b> 至 <b>".$c_board_album[0]["Date_to"]."</b>";                 
                     ?>
                     
                    <div class="text-1" style="float:left;margin:-6px 0 0 30px;font-weight:bold">華語專輯榜</div><div class="text-3" style="float:right"><?php echo $dateRange; ?></div>
@@ -597,9 +509,9 @@ require_once("templates/html_header.php");
                     
                     <div class="billboard_no1_trophy"></div> 
                     
-                        <a href="album.php?id=<?php echo $billboardResult[0]["AlbumID"]?>"><img src="libraries/timthumb.php?src=/<?php echo noImage($billboardResult[0]["AlbumPic"]); ?>&w=130&h=132&a=t" title="<?php echo $billboardResult[0]["Album"]; ?>"></a><br />                             
-                        <h4 class="p0 center text-2"><a href="album.php?id=<?php echo $billboardResult[0]["AlbumID"]?>" class="tipme-left" rel="get_album" data="<?php echo $billboardResult[0]["Album"]; ?>" id="<?php echo $billboardResult[0]["AlbumID"]; ?>"><?php echo shorten($billboardResult[0]["Album"],20);?></a></h4>
-                        <p class="p0 center text-2"><a href="album.php?id=<?php echo $billboardResult[0]["AlbumID"]?>" class="tipme-left" rel="get_celebrity" data="<?php echo $billboardResult[0]["Singer"]; ?>" id="<?php echo $billboardResult[0]["CelebrityID"]; ?>"><?php echo $billboardResult[0]["Singer"]; ?></a></p>                    
+                        <a href="album.php?id=<?php echo $c_board_album[0]["AlbumID"]?>"><img src="libraries/timthumb.php?src=/<?php echo noImage($c_board_album[0]["AlbumPic"]); ?>&w=130&h=132&a=t" title="<?php echo $c_board_album[0]["Album"]; ?>"></a><br />                             
+                        <h4 class="p0 center text-2"><a href="album.php?id=<?php echo $c_board_album[0]["AlbumID"]?>" class="tipme-left" rel="get_album" data="<?php echo $c_board_album[0]["Album"]; ?>" id="<?php echo $c_board_album[0]["AlbumID"]; ?>"><?php echo shorten($c_board_album[0]["Album"],20);?></a></h4>
+                        <p class="p0 center text-2"><a href="album.php?id=<?php echo $c_board_album[0]["AlbumID"]?>" class="tipme-left" rel="get_celebrity" data="<?php echo $c_board_album[0]["Singer"]; ?>" id="<?php echo $c_board_album[0]["CelebrityID"]; ?>"><?php echo $c_board_album[0]["Singer"]; ?></a></p>                    
                     
                     </div>
                     
@@ -613,8 +525,8 @@ require_once("templates/html_header.php");
 
                                 <div class="extra-wrap">
                                     <div class="text-rank"><?php echo $i+1; ?></div>
-                                    <h4 class="p0 text-2-2"><a href="album.php?id=<?php echo $billboardResult[$i]["AlbumID"]?>" class="tipme-left" rel="get_album" data="<?php echo $billboardResult[$i]["Album"]; ?>" id="<?php echo $billboardResult[$i]["AlbumID"]; ?>"><?php echo shorten($billboardResult[$i]["Album"],23);?></a></h4>
-                                    <p class="p0 text-2-2"><a href="celebrity.php?id=<?php echo $billboardResult[$i]["CelebrityID"]; ?>" class="tipme-left" rel="get_celebrity" data="<?php echo $billboardResult[$i]["Singer"]; ?>" id="<?php echo $billboardResult[$i]["CelebrityID"]; ?>"><?php echo shorten($billboardResult[$i]["Singer"],23); ?></a></p>
+                                    <h4 class="p0 text-2-2"><a href="album.php?id=<?php echo $c_board_album[$i]["AlbumID"]?>" class="tipme-left" rel="get_album" data="<?php echo $c_board_album[$i]["Album"]; ?>" id="<?php echo $c_board_album[$i]["AlbumID"]; ?>"><?php echo shorten($c_board_album[$i]["Album"],23);?></a></h4>
+                                    <p class="p0 text-2-2"><a href="celebrity.php?id=<?php echo $c_board_album[$i]["CelebrityID"]; ?>" class="tipme-left" rel="get_celebrity" data="<?php echo $c_board_album[$i]["Singer"]; ?>" id="<?php echo $c_board_album[$i]["CelebrityID"]; ?>"><?php echo shorten($c_board_album[$i]["Singer"],23); ?></a></p>
                                 </div>
                             </li>
                            <?php  $i++; } ?> 
@@ -623,22 +535,6 @@ require_once("templates/html_header.php");
                     
                     <br style="clear:both" />
                     <br />
-                    
-                    <?php
-                    $billboard1=$DBConn->prepare("SELECT b.Song, b.Singer, b.Date_from, b.Date_to, c.CelebrityID, c.Name, m.AlbumID, m.AlbumPic FROM tblbillboard_song as b 
-                                                JOIN tblcelebrity as c ON c.Name = b.Singer 
-                                                JOIN tblMusic as m ON m.Album = b.Album AND m.Singer = c.CelebrityID
-                                                WHERE b.Category = :musictype 
-                                                AND Date_from like :Date_from
-                                                AND Week_no = (SELECT MAX(Week_no) FROM tblbillboard_song WHERE Category = :musictype and Date_from like :Date_from) 
-                                                GROUP BY b.Song
-                                                ORDER BY Rank ASC LIMIT 5");
-                    $billboard1->bindValue(':musictype','華語歌曲',PDO::PARAM_STR);
-                    $billboard1->bindValue(':Date_from','%'.date('Y').'%',PDO::PARAM_STR);
-            
-                    $billboard1->execute();                 
-                    $billboardResult1=$billboard1->fetchAll(PDO::FETCH_ASSOC);                  
-                    ?>
                    <div class="text-1" style="float:left;margin:-6px 0 0 30px;font-weight:bold">華語歌曲榜</div>
                    
                    <br style="clear:both" />
@@ -647,9 +543,9 @@ require_once("templates/html_header.php");
                     
                     <div class="billboard_no1_trophy"></div> 
                     
-                        <a href="album.php?id=<?php echo $billboardResult1[0]["AlbumID"]?>"><img src="libraries/timthumb.php?src=<?php echo noImage($billboardResult1[0]["AlbumPic"]); ?>&w=130&h=132&a=t" title="<?php echo $billboardResult1[0]["Album"]; ?>"></a><br />                            
-                        <h4 class="p0 center text-2"><a href="album.php?id=<?php echo $billboardResult1[0]["AlbumID"]?>" class="tipme-left" rel="get_album" data="<?php echo $billboardResult1[0]["Song"]; ?>" id="<?php echo $billboardResult1[0]["AlbumID"]; ?>"><?php echo shorten($billboardResult1[0]["Song"],17);?></a></h4>
-                        <p class="p0 center text-2"><a href="celebrity.php?id=<?php echo $billboardResult1[0]["CelebrityID"]; ?>" class="tipme-left" rel="get_celebrity" data="<?php echo $billboardResult1[0]["Singer"]; ?>" id="<?php echo $billboardResult1[0]["CelebrityID"]; ?>"><?php echo shorten($billboardResult1[0]["Singer"],16); ?></a></p>                    
+                        <a href="album.php?id=<?php echo $c_board_song[0]["AlbumID"]?>"><img src="libraries/timthumb.php?src=<?php echo noImage($c_board_song[0]["AlbumPic"]); ?>&w=130&h=132&a=t" title="<?php echo $c_board_song[0]["Album"]; ?>"></a><br />                            
+                        <h4 class="p0 center text-2"><a href="album.php?id=<?php echo $c_board_song[0]["AlbumID"]?>" class="tipme-left" rel="get_album" data="<?php echo $c_board_song[0]["Song"]; ?>" id="<?php echo $c_board_song[0]["AlbumID"]; ?>"><?php echo shorten($c_board_song[0]["Song"],17);?></a></h4>
+                        <p class="p0 center text-2"><a href="celebrity.php?id=<?php echo $c_board_song[0]["CelebrityID"]; ?>" class="tipme-left" rel="get_celebrity" data="<?php echo $c_board_song[0]["Singer"]; ?>" id="<?php echo $c_board_song[0]["CelebrityID"]; ?>"><?php echo shorten($c_board_song[0]["Singer"],16); ?></a></p>                    
                     
                     </div>
                     
@@ -663,8 +559,8 @@ require_once("templates/html_header.php");
 
                                 <div class="extra-wrap">
                                     <div class="text-rank"><?php echo $i+1; ?></div>
-                                    <h4 class="p0 text-2-2"><a href="album.php?id=<?php echo $billboardResult1[$i]["AlbumID"]?>" class="tipme-left" rel="get_album" data="<?php echo $billboardResult1[$i]["Song"]; ?>" id="<?php echo $billboardResult1[$i]["AlbumID"]; ?>"><?php echo shorten($billboardResult1[$i]["Song"],23);?></a></h4>
-                                    <p class="p0 text-2-2"><a href="celebrity.php?id=<?php echo $billboardResult1[$i]["CelebrityID"]; ?>" class="tipme-left" rel="get_celebrity" data="<?php echo $billboardResult1[$i]["Singer"]; ?>" id="<?php echo $billboardResult1[$i]["CelebrityID"]; ?>"><?php echo shorten($billboardResult1[$i]["Singer"],23); ?></a></p>
+                                    <h4 class="p0 text-2-2"><a href="album.php?id=<?php echo $c_board_song[$i]["AlbumID"]?>" class="tipme-left" rel="get_album" data="<?php echo $c_board_song[$i]["Song"]; ?>" id="<?php echo $c_board_song[$i]["AlbumID"]; ?>"><?php echo shorten($c_board_song[$i]["Song"],23);?></a></h4>
+                                    <p class="p0 text-2-2"><a href="celebrity.php?id=<?php echo $c_board_song[$i]["CelebrityID"]; ?>" class="tipme-left" rel="get_celebrity" data="<?php echo $c_board_song[$i]["Singer"]; ?>" id="<?php echo $c_board_song[$i]["CelebrityID"]; ?>"><?php echo shorten($c_board_song[$i]["Singer"],23); ?></a></p>
                                 </div>
                             </li>
                            <?php  $i++; } while($i < 5)?> 
@@ -688,18 +584,8 @@ require_once("templates/html_header.php");
 
             </ul>
   
-            <div id="memo-birthday"> <!-- 本週生日 --> 
-  
-            <?php        
-                $bday=$DBConn->prepare("SELECT CelebrityID, Name, Pic, birthday FROM tblcelebrity 
-                                        WHERE WEEKOFYEAR( concat(Year(Now()),substr(birthday,5)) ) = WEEKOFYEAR( NOW( ) ) ORDER BY birthday ASC 
-                                        ");
-                $bday->execute();
-                $bdayResult=$bday->fetch(PDO::FETCH_ASSOC);
-                $total_bday = $bday->rowCount();
-             ?>    
-            
-            <?php if($total_bday < 1) { ?>
+            <div id="memo-birthday"> <!-- 本週生日 -->   
+            <?php if(count($singer_bday) < 1) { ?>
             
             <div class="no_memo">本週沒有藝人生日..</div>
             
@@ -707,22 +593,22 @@ require_once("templates/html_header.php");
             
             <ul id="bday_celeb" class="carousel_right">
 
-                 <?php $i = 0; do { ?>        
+                <? foreach($singer_bday as $value):?>        
                 <li>
 
-                    <div class="thumbnail_box"><a href="celebrity.php?id=<?php echo $bdayResult["CelebrityID"]; ?>"><img src="libraries/timthumb.php?src=/<?php echo $bdayResult["Pic"]; ?>&w=100&h=100&a=t" title="<?php echo $bdayResult["Name"]; ?>"></a></div>
+                    <div class="thumbnail_box"><a href="celebrity.php?id=<?php echo $value["CelebrityID"]; ?>"><img src="libraries/timthumb.php?src=/<?php echo $value["Pic"]; ?>&w=100&h=100&a=t" title="<?php echo $value["Name"]; ?>"></a></div>
 
-                    <h6 class="singer center" style="word-wrap:break-word;"><a href="celebrity.php?id=<?php echo $bdayResult["CelebrityID"]; ?>" class="tipme-left" rel="get_celebrity" data="<?php echo $bdayResult["Name"];?>" id="<?php echo $bdayResult["CelebrityID"] ;?>"><?php echo shorten($bdayResult["Name"], 12);?></a></h6>
+                    <h6 class="singer center" style="word-wrap:break-word;"><a href="celebrity.php?id=<?php echo $value["CelebrityID"]; ?>" class="tipme-left" rel="get_celebrity" data="<?php echo $value["Name"];?>" id="<?php echo $value["CelebrityID"] ;?>"><?php echo shorten($value["Name"], 12);?></a></h6>
                     
-                    <h6 class="text-4 center"><?php echo birthdate($bdayResult["birthday"]);?></h6>                             
+                    <h6 class="text-4 center"><?php echo birthdate($value["birthday"]);?></h6>                             
 
                 </li>
-                <?php $i++; } while($bdayResult=$bday->fetch(PDO::FETCH_ASSOC))?>
+                <?php endforeach;?>
 
                 </ul>
                 <div class="clearfix"></div>
                 
-                <?php if($total_bday > 3) { ?>              
+                <?php if(count($singer_bday) > 3) { ?>              
                 <div class="pager_nav">
                     <div class="pn_wrapper">
                         <a class="prev" id="bday_celeb_prev" href="#"><span>prev</span></a>
@@ -739,16 +625,7 @@ require_once("templates/html_header.php");
               
               <div id="memo-passedday"> <!-- 本週懷念 -->
  
-            <?php        
-                $pday=$DBConn->prepare("SELECT CelebrityID, Name, Pic, passday FROM tblcelebrity 
-                                        WHERE WEEKOFYEAR( concat(Year(Now()),substr(passday,5)) ) = WEEKOFYEAR( NOW( ) ) 
-                                        ORDER BY passday ASC");
-                $pday->execute();
-                $pdayResult=$pday->fetch(PDO::FETCH_ASSOC);
-                $total_pday = $pday->rowCount();
-             ?>    
-            
-            <?php if($total_pday < 1) { ?>
+            <?php if(count($singer_pass) < 1) { ?>
             
             <div class="no_memo">本週無任何相關紀念日..</div>
             
@@ -756,22 +633,22 @@ require_once("templates/html_header.php");
             
             <ul id="pday_celeb" class="carousel_right">
 
-                 <?php $i = 0; do { ?>        
+                 <? foreach($singer_pass as $value):?>
                 <li>
 
-                    <div class="thumbnail_box"><a href="celebrity.php?id=<?php echo $pdayResult["CelebrityID"]; ?>"><img src="libraries/timthumb.php?src=/<?php echo $pdayResult["Pic"]; ?>&w=100&h=100&a=t" title="<?php echo $pdayResult["Name"]; ?>"></a></div>
+                    <div class="thumbnail_box"><a href="celebrity.php?id=<?php echo $value["CelebrityID"]; ?>"><img src="libraries/timthumb.php?src=/<?php echo $value["Pic"]; ?>&w=100&h=100&a=t" title="<?php echo $value["Name"]; ?>"></a></div>
 
-                    <h6 class="singer"><a href="celebrity.php?id=<?php echo $pdayResult["CelebrityID"]; ?>" class="tipme-left" rel="get_celebrity" data="<?php echo $pdayResult["Name"];?>" id="<?php echo $pdayResult["CelebrityID"] ;?>"><?php echo shorten($pdayResult["Name"], 50);?></a></h6>
+                    <h6 class="singer"><a href="celebrity.php?id=<?php echo $value["CelebrityID"]; ?>" class="tipme-left" rel="get_celebrity" data="<?php echo $value["Name"];?>" id="<?php echo $value["CelebrityID"] ;?>"><?php echo shorten($value["Name"], 50);?></a></h6>
                     
-                    <h6 class="text-4"><?php echo birthdate($pdayResult["passday"]);?></h6>                             
+                    <h6 class="text-4"><?php echo birthdate($value["passday"]);?></h6>                             
 
                 </li>
-                <?php $i++; } while($pdayResult=$pday->fetch(PDO::FETCH_ASSOC))?>
+                <?php endforeach;?>
 
                 </ul>
                 <div class="clearfix"></div>
                 
-                <?php if($total_pday > 3) { ?>
+                <?php if(count($singer_pass) > 3) { ?>
                 <div class="pager_nav">
                     <div class="pn_wrapper">
                         <a class="prev" id="pday_celeb_prev" href="#"><span>prev</span></a>
@@ -800,18 +677,11 @@ require_once("templates/html_header.php");
         
         <div class="title"><a href="partners.php">合作夥伴</a></div>
                
-        <?php       
-            $Partners=$DBConn->prepare("SELECT ADLink, Note, AdPicture FROM tblrowad WHERE ADType = :type ORDER BY Rand() LIMIT 10");
-            $Partners->bindValue(':type','合作單位',PDO::PARAM_STR);
-            $Partners->execute();
-            $PartnersResults=$Partners->fetchAll(PDO::FETCH_ASSOC);
-            
-            foreach($PartnersResults as $partner) {
-        ?>
+        <?php foreach($partners as $partner): ?>
         
         <a href="<?php echo $partner['ADLink'] ?>" target="_blank"><img src="libraries/timthumb.php?src=/<?php echo $partner['AdPicture'] ?>&w=62" title="<?php echo $partner['Note'] ?>" width="62" height="40"/></a>
         
-        <?php } ?>      
+        <?php endforeach; ?>      
         
     </div>         
 

@@ -17,4 +17,11 @@ class Article extends CI_Model {
 
         return $query->result_array();
     }
+
+    public function get_by_type($type, $limit)
+    {
+        $query = $this->db->query("SELECT id,homeImage,title,context,publishedTime as time FROM article WHERE type= ? and status='open' ORDER BY publishedTime DESC limit ?", array($type, $limit));
+
+        return $query->result_array();
+    }
 }
